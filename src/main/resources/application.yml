@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: kafka-to-elastic-service
+  servlet:
+    multipart:
+      max-file-size: 5GB
+      max-request-size: 20GB
+ 
+server:
+  port: 9090
+
+storage:
+  config:
+    upload-base-path: "/opt/fileserver-data/uploaded-files"

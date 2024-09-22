@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.kaziabid.os.fileserver-api</groupId>
+	<artifactId>
+		fileserver-api</artifactId>
+	<version>0.0.1</version>
+	<name>File Server Api</name>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>
+			spring-boot-starter-parent</artifactId>
+		<version>3.2.1</version>
+	</parent>
+
+	<properties>
+		<maven.compiler.release>21</maven.compiler.release>
+		<project.artifactId>fileserver-api</project.artifactId>
+		<project.version>0.0.1</project.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+		<!--
+        https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>
+							fileserver-api/${project.artifactId}:${project.version}</name>
+					</image>
+				</configuration>
+				<executions>
+					<execution>
+						<id>1</id>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+					<!--					<execution>-->
+					<!--						<id>2</id>-->
+					<!--						<phase>install</phase>-->
+					<!--						<goals>-->
+					<!--							<goal>build-image</goal>-->
+					<!--						</goals>-->
+					<!--					</execution>-->
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
