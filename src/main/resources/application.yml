@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: kafka-to-elastic-service
   servlet:
     multipart:
       max-file-size: 5GB
